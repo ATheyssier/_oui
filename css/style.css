@@ -1,8 +1,13 @@
 canvas {
     border: 2px solid black;
-    background-color: #f2f2f2;
+    background-color: #d9d9d9;
     display: block;
-    margin: auto;
+    margin-left: 700px;
+    position: fixed;
+}
+
+canvas.fillText{
+	color : black;
 }
 
 h1 {
@@ -10,25 +15,58 @@ h1 {
     font-family: Montserrat;
     font-size: 60px;
     color: White;
+    font-weight: bolder;
+    border: 3px solid white;
+    margin-left: 700px;
+    margin-right: 700px;
+
 }
 
 body {
-    background-image: url('http://www.wallfizz.com/animes/naruto/6537-yeux-de-sang-naruto-WallFizz.jpg');
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/c/184689.jpg');
+    background-size: 100%
 }
 
 #red {
     text-align: left;
     margin-left: 250px;
+	margin-bottom: 20px;
     font-family: Montserrat;
     font-size: 45px;
-    margin-top: -45px;
-    color: White;
+    margin-top: -50px;
+    color: red;
+    font-weight: bolder;
+    
 }
 
 #blue {
     text-align: right;
     margin-right: 250px;
+	margin-bottom: 20px;
+	margin-top: 10px;
     font-family: Montserrat;
     font-size: 45px;
-    color: White;
+    font-weight: bolder;
+    color: blue;
+    
+}
+
+#blue1 {
+	float: right;
+	margin-right: 270px;
+	max-width: 100px;
+
+}
+
+#red1 {
+	float: left;
+	margin-left: 250px;
+	max-width: 100px;
+}
+
+img {
+	width: 100px;
+	margin-left : 5px;
+	margin-right: 5px;
+	border: 2px solid white;
 }

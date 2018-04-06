@@ -8,8 +8,6 @@ window.onload = () => {
     let yPos2 = 400
     let lives = 3
     let lives2 = 3
-    let table = []
-    let table2 = []
 
     ctx.fillStyle = 'red'
     ctx.fillRect(xPos, yPos, 50, 50)
@@ -20,25 +18,25 @@ window.onload = () => {
 
 
     const move = e => {
-        if (e.keyCode == 39) {
+        if (e.keyCode == 68) {
             xPos += 25
             if (xPos >= 400) {
                 xPos = 400
             }
         }
-        if (e.keyCode == 37) {
+        if (e.keyCode == 81) {
             xPos -= 25
             if (xPos <= 50) {
                 xPos = 50
             }
         }
-        if (e.keyCode == 38) {
+        if (e.keyCode == 90) {
             yPos -= 25
             if (yPos <= 50) {
                 yPos = 50
             }
         }
-        if (e.keyCode == 40) {
+        if (e.keyCode == 83) {
             yPos += 25
             if (yPos >= 400) {
                 yPos = 400
@@ -48,25 +46,25 @@ window.onload = () => {
     }
 
     const move2 = e => {
-        if (e.keyCode == 68) {
+        if (e.keyCode == 39) {
             xPos2 += 25
             if (xPos2 >= 400) {
                 xPos2 = 400
             }
         }
-        if (e.keyCode == 81) {
+        if (e.keyCode == 37) {
             xPos2 -= 25
             if (xPos2 <= 50) {
                 xPos2 = 50
             }
         }
-        if (e.keyCode == 90) {
+        if (e.keyCode == 38) {
             yPos2 -= 25
             if (yPos2 <= 50) {
                 yPos2 = 50
             }
         }
-        if (e.keyCode == 83) {
+        if (e.keyCode == 40) {
             yPos2 += 25
             if (yPos2 >= 400) {
                 yPos2 = 400
@@ -106,12 +104,15 @@ window.onload = () => {
             yPos = 50
             xPos2 = 400
             yPos2 = 400
-            table2.push('I')
+
+			const get = document.getElementById('blue1')
+			const imgSuperman = "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/644-superman.jpg"
+			get.innerHTML += `<img src="${imgSuperman}"/>`
+            
             if (lives <= 0) {
-                ctx.font = '48px Georgia'
+                ctx.font = '48px Montserrat'
                 ctx.fillText('BLUE WIN!', 125, 250)
                 document.removeEventListener('keydown', update)
-
             }
         } else if (xPos2 <= 25 || xPos2 >= 425 || yPos2 <= 25 || yPos2 >= 425) {
             lives2 = lives2 - 1
@@ -119,9 +120,13 @@ window.onload = () => {
             yPos = 50
             xPos2 = 400
             yPos2 = 400
-            table.push('I')
+
+			const get = document.getElementById('red1')
+			const imgNaruto = "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/485-naruto-uzumaki.jpg"
+			get.innerHTML += `<img src="${imgNaruto}"/>`
+
             if (lives2 <= 0) {
-                ctx.font = '48px Georgia'
+                ctx.font = '48px Montserrat'
                 ctx.fillText('RED WIN!', 125, 250)
                 document.removeEventListener('keydown', update)
             }
@@ -140,30 +145,4 @@ window.onload = () => {
         loseCondition(e)
     }
     document.addEventListener('keydown', update)
-
 }
-
-const imageSuperman = () => {
-
-    fetch("https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json")
-        .then(res => res.json())
-        .then(rejson => {
-
-            const get = document.getElementById('blue1')
-            const imgSuperman = "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/644-superman.jpg"
-            get.innerHTML = `<img src"${imgSuperman}"/>`
-        })
-}
-imageSuperman()
-
-const imageNaruto = () => {
-
-    fetch("https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json")
-        .then(res => res.json())
-        .then(rejson => {
-            const get = document.getElementById('red1')
-            const imgNaruto = "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/485-naruto-uzumaki.jpg"
-            get.innerHTML = `<img src="${imgNaruto}"/>`
-        })
-}
-imageNaruto()
